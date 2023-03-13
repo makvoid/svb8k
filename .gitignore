@@ -2,3 +2,4 @@ node_modules
 dist
 .angular
 last_run.json
+public/api/angular
