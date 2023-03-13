@@ -1,0 +1,24 @@
+<ng-container *ngIf="this.reports.length">
+  Company: {{ getCompanyName() }} (1 / {{ this.reports.length }})<br />
+  Date: {{ this.reports[0].updated }} <br />
+  <a target="_blank" href="{{ this.reports[0].filingReportUrl }}">Filing Report</a> |
+  <a target="_blank" href="{{ this.reports[0].reportUrl }}">8-K Report</a>
+  <hr>
+  Description:<br/>
+  <form [formGroup]="form">
+    <textarea formControlName="description" cols="75" rows="10"></textarea>
+  </form>
+  <br />
+  Affected? 
+  <button (click)="saveRecord('yes')">Yes</button> &nbsp;
+  <button (click)="saveRecord('no')">No</button> &nbsp;
+  <button (click)="skipRecord()">Skip</button> &nbsp;
+  <button (click)="deleteRecord()">Delete</button>
+  <hr>
+  Last objectID: {{ lastObjectID }}
+</ng-container>
+<ng-container *ngIf="!this.reports.length">
+  No Reports Loaded
+</ng-container>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,36 @@
+<app-page-title></app-page-title>
+<ais-instantsearch [config]="searchService.config">
+  <ais-configure
+    [searchParameters]="{clickAnalytics: true, hitsPerPage: 10}"
+  >
+  </ais-configure>
+  <div class="mt-3">
+    <app-search-box #searchBox></app-search-box>
+  </div>
+  <ais-infinite-hits>
+    <ng-template
+      let-hits="hits"
+      let-refineNext="showMore"
+      let-refine="showMore"
+    >
+      <div *ngIf="hits.length" class="my-4 text-center">
+        <ng-container *ngFor="let hit of hits">
+          <app-hit
+            [hit]="hit"
+          ></app-hit>
+        </ng-container>
+        <button
+          *ngIf="showRefineButton()"
+          class="btn btn-ghost mt-5"
+          (click)="refineNext($event)"
+          (onVisible)="refineNext($event)"
+        >
+          Show more
+        </button>
+      </div>
+      <div *ngIf="!hits.length" class="mt-8 text-center">
+        No results found - try something else?
+      </div>
+    </ng-template>
+  </ais-infinite-hits>
+</ais-instantsearch>

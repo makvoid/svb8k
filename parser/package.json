@@ -1,0 +1,26 @@
+{
+  "name": "parser",
+  "version": "1.0.0",
+  "description": "SEC EDGAR parser to obtain 8-K metadata surrounding the SVB fallout",
+  "main": "src/parser.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael King <@makvoid>",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^3.2.4",
+    "bottleneck": "^2.19.5",
+    "fast-xml-parser": "^4.1.3",
+    "mongodb": "^5.1.0",
+    "node-fetch": "2",
+    "node-html-parser": "^6.1.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.1",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0"
+  }
+}

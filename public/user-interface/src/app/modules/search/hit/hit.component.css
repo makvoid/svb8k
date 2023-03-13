@@ -1,0 +1,18 @@
+.card-link {
+  display: block;
+}
+.btn.tooltip {
+  text-transform: inherit;
+}
+.btn svg {
+  margin-top: 0.2rem;
+}
+a.btn, a.btn svg {
+  cursor: pointer;
+}
+.text-date {
+  color: #858585;
+}
+.body-block {
+  color: #a5a5a5;
+}

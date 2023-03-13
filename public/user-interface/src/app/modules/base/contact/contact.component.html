@@ -1,0 +1,80 @@
+<app-page-title [title]="'Contact'"></app-page-title>
+
+<form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+  <div class="card sm:w-full md:w-1/2 bg-base-200 shadow-xl mx-auto text-left mt-5">
+    <div class="card-body">
+      <!-- Name -->
+      <div class="form-control w-full">
+        <label class="label">
+          <span class="label-text">Name / Company Name</span>
+        </label>
+        <input
+          formControlName="name"
+          type="text"
+          class="input input-bordered w-full" 
+          [ngClass]="{'input-error': !isControlValid('name', form)}"
+        />
+        <ng-container *ngIf="!isControlValid('name', form)">
+          <p
+            class="text-error"
+            *ngFor="let error of getControlErrors('name', form)"
+          >
+            {{ error.error }}
+          </p>
+        </ng-container>
+      </div>
+      <!-- Email -->
+      <div class="form-control w-full">
+        <label class="label">
+          <span class="label-text">Email Address</span>
+        </label>
+        <input
+          formControlName="email"
+          type="email"
+          class="input input-bordered w-full" 
+          [ngClass]="{'input-error': !isControlValid('email', form)}"
+        />
+        <ng-container *ngIf="!isControlValid('email', form)">
+          <p
+            class="text-error"
+            *ngFor="let error of getControlErrors('email', form)"
+          >
+            {{ error.error }}
+          </p>
+        </ng-container>
+      </div>
+      <!-- Message -->
+      <div class="form-control w-full">
+        <label class="label">
+          <span class="label-text">What is your message?</span>
+        </label>
+        <textarea
+          formControlName="message"
+          class="input input-bordered w-full h-24"
+          [ngClass]="{'input-error': !isControlValid('message', form)}"
+        >
+        </textarea>
+        <ng-container *ngIf="!isControlValid('message', form)">
+          <p
+            class="text-error"
+            *ngFor="let error of getControlErrors('message', form)"
+          >
+            {{ error.error }}
+          </p>
+        </ng-container>
+      </div>
+      <div class="grid grid-cols-3 mt-3">
+        <div class="col-span-2 items-center">
+          <app-alert [params]="alertParams"></app-alert>
+        </div>
+        <div class="card-actions justify-end items-center">
+          <button
+            type="submit"
+            class="btn btn-secondary"
+          >
+            Send Message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,16 @@
+[Unit]
+Description=Public API Handler for SVB-8K
+After=network.target
+
+[Service]
+Environment=PORT=3000
+Environment=MONGO_URI="mongodb://0.0.0.0"
+Environment=MONGO_DB=dbname
+Environment=NODE_ENV=production
+Type=simple
+User=web-user
+ExecStart=/usr/bin/node /opt/public-api/src/server.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

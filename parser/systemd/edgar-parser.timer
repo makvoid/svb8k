@@ -1,0 +1,10 @@
+[Unit]
+Description=Automatic timer for the Edgar Parser
+Requires=edgar-parser.service
+
+[Timer]
+Unit=edgar-parser.service
+OnCalendar=*:0/5
+
+[Install]
+WantedBy=timers.target

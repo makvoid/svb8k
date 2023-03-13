@@ -1,0 +1,13 @@
+[Unit]
+Description=Edgar Parser Service
+After=network-online.target
+
+[Service]
+Environment=MONGO_URI="mongodb://0.0.0.0"
+Environment=MONGO_DB=dbname
+Type=oneshot
+User=web-user
+ExecStart=node /opt/parser/src/parser.js
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,23 @@
+<div class="">
+  <div class="flex justify-center">
+    <input
+      #searchBox
+      (input)="this.state.refine(searchBox.value)"
+      [value]="this.state?.query"
+      placeholder="Company name"
+      class="input input-bordered w-full max-w-md"
+      type="text"
+      spellcheck="false"
+      autocapitalize="off"
+      autocorrect="off"
+      role="textbox"
+    />
+  </div>
+</div>
+<div class="text-sm text-center my-4">
+  <ais-stats>
+    <ng-template let-state="state">
+      {{ getStats(state) }}
+    </ng-template>
+  </ais-stats>
+</div>
