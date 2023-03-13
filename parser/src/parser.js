@@ -26,7 +26,8 @@ const limiter = new Bottleneck({
 // Default headers and other options to pass with every request
 const DEFAULT_OPTIONS = {
   headers: {
-    'User-Agent': 'SVB 8-K Search - svb8k.com contact@svb8k.com'
+    // Modify with your information as per the terms of service
+    'User-Agent': 'Project Description - Project URL <contact-email>@<company-domain>.com'
   }
 }
 
