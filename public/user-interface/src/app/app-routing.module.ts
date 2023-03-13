@@ -7,7 +7,7 @@ import { FaqComponent } from './modules/base/faq/faq.component';
 const routes: Routes = [
   {
     path: '',
-    title: 'Search 8-Ks',
+    title: 'Search SVB 8-Ks',
     loadChildren: () => import('./modules/search/search.module').then((m) => m.SearchModule)
   },
   {

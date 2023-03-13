@@ -22,7 +22,7 @@ app.use(morgan(':date[iso] :req[x-forwarded-for] :method :url :status [:response
 
 // Allow access to Algolia's API
 app.use((_req, res, next) => {
-  res.setHeader("Content-Security-Policy", "script-src 'self' https://*.algolianet.com");
+  res.setHeader("Content-Security-Policy", "base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self' https://*.algolianet.com;script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests")
   next()
 })
 

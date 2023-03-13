@@ -142,7 +142,7 @@ const main = async () => {
     const body = await response.text()
 
     // Check for any terms of interest
-    for (const term of ['Silicon Valley Bank', 'SVB']) {
+    for (const term of ['Silicon Valley Bank', 'SVB', 'Signature Bank']) {
       if (body.includes(term)) {
         return report
       }
