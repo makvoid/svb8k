@@ -50,6 +50,7 @@ app.post('/ingress/:objectID/processed', async (req, res, _next) => {
   const record = await ingressCollection.findOne({ objectID: req.params.objectID })
   const indexResult = await index.saveObject({
     objectID: req.params.objectID,
+    name: record.company,
     title: record.title,
     accessionNumber: record.accessionNumber,
     filingReportUrl: record.filingReportUrl,
@@ -64,7 +65,12 @@ app.post('/ingress/:objectID/processed', async (req, res, _next) => {
 
 // Delete a report (not applicable)
 app.delete('/ingress/:objectID', async (req, res, _next) => {
-  return res.json(await ingressCollection.deleteOne({ objectID: req.params.objectID }))
+  const result = await ingressCollection.updateOne({ objectID: req.params.objectID }, {
+    $set: {
+      processed: true
+    }
+  })
+  return result
 })
 
 // Listener

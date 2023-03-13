@@ -3,6 +3,7 @@ const Bottleneck = require('bottleneck')
 const fetch = require('node-fetch')
 const fs = require('fs')
 const { parse } = require('node-html-parser')
+const path = require('path')
 const { XMLParser } = require('fast-xml-parser')
 const { MongoClient } = require('mongodb')
 
@@ -52,7 +53,6 @@ const shouldLoadPage = (lastRun, parsed8Ks) => {
 }
 
 const getReports = async (lastRun, start = 0, reports = []) => {
-  console.log('getReports-start:', start)
   // The API won't return results over this count
   if (start === 760) {
     return reports
@@ -128,7 +128,7 @@ const main = async () => {
   })
 
   // Remove any 8-Ks which don't mention SVB
-  console.log('Removing 8-Ks which don\'t mention SVB')
+  console.log('Removing 8-Ks which don\'t mention SVB or Signature Bank')
   reports = await map(reports, async (report) => {
     // Grab the report's raw text
     let response
