@@ -1,5 +1,7 @@
 # SVB 8-K Search
 
+![](assets/screenshot.png)
+
 Monorepo for my [svb8k.com](https://svb8k.com) project, where I have aggregated 8-K excerpts from US-based publicly traded companies which mention Silicon Valley Bank. This makes it easier to see which public companies are potentially affected by the [fallout](https://www.npr.org/2023/03/10/1162599556/silicon-valley-bank-collapse-failure-fdic-regulators-run-on-bank) of the bank.
 
 Each part of the project contains a README which has details on installation/configuration. 
